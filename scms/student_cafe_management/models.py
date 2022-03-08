@@ -13,3 +13,4 @@ class Customers(models.Model):
 
 class Dues(models.Model):
 	cus_id=models.ForeignKey(Customers, on_delete=models.CASCADE)
+	

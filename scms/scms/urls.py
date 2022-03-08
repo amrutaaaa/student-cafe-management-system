@@ -19,5 +19,6 @@ from student_cafe_management import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',include('student_cafe_management.urls'))
+    path('',include('student_cafe_management.urls')),
+    
 ]
