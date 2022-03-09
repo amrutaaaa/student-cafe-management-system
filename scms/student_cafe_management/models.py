@@ -12,4 +12,20 @@ class Customers(models.Model):
 		return self.name
 
 class Dues(models.Model):
-	cus_id=models.ForeignKey(Customers, on_delete=models.CASCADE)
+	cus_id=models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="ID number")
+	due=models.FloatField("Amount Due")
+	last_purchase_date=models.DateTimeField("Date of Last Purchase")
+	
+	def __str__(self):
+		return self.cus_id+" owes "+self.due
+		
+class Products(models.Model):
+	prod_id=models.CharField("Product ID",max_length=10, primary_key=True)
+	item_name=models.CharField("Product Name",max_length=40)
+	availabilty=models.IntegerField("Availability",default=0)
+	price=models.FloatField("Price")
+
+	def __str__(self):
+		return self.prod_id
+
+
