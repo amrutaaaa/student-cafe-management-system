@@ -25,4 +25,7 @@ class Products(models.Model):
 	availabilty=models.IntegerField("Availability",default=0)
 	price=models.FloatField("Price")
 
+	def __str__(self):
+		return self.prod_id
+
 
