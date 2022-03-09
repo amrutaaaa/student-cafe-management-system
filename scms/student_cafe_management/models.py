@@ -9,7 +9,7 @@ class Customers(models.Model):
 	email=models.EmailField("Email Address",max_length=254)
 
 	def __str__(self):
-		return self.name
+		return self.idno
 
 class Dues(models.Model):
 	cus_id=models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="ID number")

@@ -35,7 +35,8 @@ def products(request):
     # # a="kl"
     # context={'item_name':item_name,'pk':pk,'quant':quant,'price':price}
     context={ 'product_list': xl}
-
+    
+        
     
     return render(request, 'student_cafe_management/products.html',context)
 
