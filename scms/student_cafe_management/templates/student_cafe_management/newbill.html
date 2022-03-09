@@ -7,6 +7,66 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>"Create a new bill for teh student"</h3>
+   
+    <div class="container my-3 ">
+    <form action="/newbill" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="product">Product</label>
+          <!-- <label for="cars">Choose a car:</label> -->
+          <select name="product" id="product">
+            {% for i in product_list %}
+            
+            <option value={{i.pk}} >{{i.item_name}}  | REM: {{i.availabilty}}</option>
+            {% endfor %}
+            </select>
+            <label for="quant">Quantitity</label>
+         
+            
+        
+          <input type="text" class="form-control" id="quant" name="quant" required aria-describedby="item_id"  required>
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div>
+            <label for="stud_id">Student ID</label>
+            <input type="text" class="form-control" id="stud_id" name="stud_id" required aria-describedby="stud_id"  required>
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary">Add Item</button>
+       
+
+      </form>
+      
+      </div>
+      
+  <h2> BILL</h2>
+  Name: {{customerob.name}}
+ <br> ID No-{{customerob.idno}}
+ <br> PHone No-{{customerob.phno}}
+ <br> email: {{customerob.email}}
+      <table>
+        <tr><th> Item ID</th>
+          <th> Item Name</th>
+          <th> Quantity</th>
+          <th>Price</th>
+          </tr>
+          
+          {% for i,j in bought_list.items %}
+<tr><td>{{i.pk}}</td>
+    <td>{{i.item_name}}</td>
+<td>{{j}}</td>
+<td>{{i.price}}*{{j}}</td>
+</tr>
+{% endfor %}
+</table>
+<table>
+<tr><td>Total</td>
+<td>{{sum}}</td></tr>
+
+      </table>
+
+    
+
 </body>
 </html>
