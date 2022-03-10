@@ -6,8 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+  body  {
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-cafe-promotion-poster-background-image_145807.jpg");
+    
+  }
+  </style>
 <body>
-   
+   <style>
+     #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(odd){background-color: #d4e6e6;}
+#customers tr:nth-child(even){background-color: #d4e6e6;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(odd){background-color: #d4e6e6;}
+#customers tr:nth-child(even){background-color: #d4e6e6;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+  h2 {text-align: center;}
+</style>
     <div class="container my-3 ">
     <form action="/newbill" method="post">
         {% csrf_token %}
@@ -39,13 +90,16 @@
       </form>
       
       </div>
-      
-  <h2> BILL</h2>
-  Name: {{customerob.name}}
- <br> ID No-{{customerob.idno}}
- <br> PHone No-{{customerob.phno}}
- <br> email: {{customerob.email}}
-      <table>
+      <hr>
+  <h2 style ="color: beige;">BILL</h2>
+  <hr>
+<body style="color: beige;">Name : {{customerob.name}}
+ <br> ID No. : {{customerob.idno}}
+ <br> Phone No. : {{customerob.phno}}
+ <br> email ID : {{customerob.email}}
+ <hr>
+ </body>
+      <table id="customers">
         <tr><th> Item ID</th>
           <th> Item Name</th>
           <th> Quantity</th>
@@ -60,8 +114,9 @@
 </tr>
 {% endfor %}
 </table>
+<hr>
 <table>
-<tr><td>Total</td>
+<tr><td>Total : </td>
 <td>{{sum}}</td></tr>
 
       </table>
