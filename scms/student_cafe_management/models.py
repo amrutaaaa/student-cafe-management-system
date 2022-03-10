@@ -14,10 +14,9 @@ class Customers(models.Model):
 class Dues(models.Model):
 	cus_id=models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="ID number")
 	due=models.FloatField("Amount Due")
-	last_purchase_date=models.DateTimeField("Date of Last Purchase")
 	
 	def __str__(self):
-		return self.cus_id+" owes "+self.due
+		return str(self.cus_id)
 		
 class Products(models.Model):
 	prod_id=models.CharField("Product ID",max_length=10, primary_key=True)
