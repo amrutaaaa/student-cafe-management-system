@@ -4,41 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Cafe Mangement System /newbill</title>
 </head>
+<style>
+  body {
+    background: #eee
+}
+
+#regForm {
+    background-color: #ffffff;
+    margin: 0px auto;
+    font-family: Raleway;
+    padding: 40px;
+    border-radius: 10px
+}
+
+#register {
+    color: #6A1B9A
+}
+
+h1 {
+    text-align: center
+}
+
+input {
+    padding: 10px;
+    width: 50%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    -webkit-appearance: none
+}
+
+.tab input:focus {
+    border: 1px solid #6a1b9a !important;
+    outline: none
+}
+
+.checkinp input:focus {
+    border: 1px solid #6a1b9a !important;
+    outline: none
+}
+.checkinp{
+  padding: 10px;
+    width: 51%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    -webkit-appearance: none
+}
+
+
+input.invalid {
+    border: 1px solid #e03a0666
+}
+
+
+
+button {
+    background-color: #6A1B9A;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer
+}
+
+button:hover {
+    opacity: 0.8
+}
+
+button:focus {
+    outline: none !important
+}
+
+</style>
 <body>
-   
-    <div class="container my-3 ">
-    <form action="/newbill" method="post">
+
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+          <form action="/newbill" method="post" id="regform">
+                <h1 id="register">Create Bill</h1>
+              
+ 
         {% csrf_token %}
-        <div class="form-group">
-          <label for="product">Product</label>
-          <!-- <label for="cars">Choose a car:</label> -->
-          <select name="product" id="product">
+        
+     <div class ="tab">
+          <h4><label for="product">Product</label></h4>
+          <p><select class="checkinp" name="product" id="product">
             {% for i in product_list %}
-            
             <option value={{i.pk}} >{{i.item_name}}  | REM: {{i.availabilty}}</option>
             {% endfor %}
             </select>
-            <label for="quant">Quantitity</label>
-         
-            
-        
-          <input type="text" class="form-control" id="quant" name="quant" required aria-describedby="item_id"  required>
+            </p>
+            </div>
+           
+       
+            <div class="tab">
+            <h4><label for="quant">Quantitity</label> </h4>
+          <p><input type="text" class="form-control" id="quant" name="quant" required aria-describedby="item_id"  required></p>
           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
+        
         <div>
-            <label for="stud_id">Student ID</label>
-            <input type="text" class="form-control" id="stud_id" name="stud_id" required aria-describedby="stud_id"  required>
+            <h4><label for="stud_id">Student ID</label></h4>
+            <p><input type="text" class="form-control" id="stud_id" name="stud_id" required aria-describedby="stud_id"  required></p>
         </div>
         
-       
+       <div>
+         <br>
         <button type="submit" class="btn btn-primary">Add Item</button>
-       
+        
+        </div>
+      </div>
 
-      </form>
+      
       
       </div>
+    </div>
+    </div>
+    </div>
+ 
+ 
       
   <h2> BILL</h2>
   Name: {{customerob.name}}
@@ -70,3 +162,4 @@
 
 </body>
 </html>
+
